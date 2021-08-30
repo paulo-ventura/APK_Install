@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.neoenergia.mom.apkinstall">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher_app"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:sharedUserId="android.uid.shell"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.APKInstall">
+        <receiver
+            android:name=".PowerConnectionReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <receiver
+            android:name=".BatteryLevelReceiver"
+            android:enabled="true"
+            android:exported="true">
+        </receiver>
+
+        <uses-library
+            android:name="com.datalogic.device"
+            android:required="true" />
+
+        <activity
+            android:name=".BatteryActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

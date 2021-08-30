@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">APK Install</string>
+    <string name="welcome">Hello MOM !!!</string>
+    <string name="package_name_label">Package Name:</string>
+    <string name="install_button_label">Instalar APK</string>
+    <string name="file_name_label">File Name:</string>
+    <string name="package_version_label">Package Version:</string>
+    <string name="packageVersionFormat">%1$d-%2$s</string>
+    <string name="battery_info_btn">Bateria</string>
+</resources>
